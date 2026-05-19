@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — MiVehículo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1a4f8a;
+      --orange:  #f59e0b;
+      --dark:    #0f172a;
+      --muted:   #64748b;
+      --light:   #f8fafc;
+      --border:  #e2e8f0;
+      --radius:  12px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a4f8a 0%, #0d2d54 100%);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 52px; height: 52px;
+      background: var(--orange);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+    }
+    .logo-name {
+      font-size: 22px; font-weight: 700; color: #fff;
+    }
+    header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    header p  { color: #93b8d8; font-size: 15px; }
+
+    /* ── Nav tabs ── */
+    .nav {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 8px rgba(0,0,0,.06);
+    }
+    .nav a {
+      padding: 16px 28px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      border-bottom: 3px solid transparent;
+      transition: all .2s;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--blue);
+      border-bottom-color: var(--orange);
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    section { display: none; }
+    section.active { display: block; }
+
+    /* ── Content ── */
+    .updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--blue);
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    h2:first-of-type { margin-top: 0; }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 24px 0 8px;
+    }
+
+    p { margin-bottom: 14px; color: #334155; }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 14px;
+      color: #334155;
+    }
+    li { margin-bottom: 6px; }
+
+    /* ── Info box ── */
+    .box {
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .box-blue  { background: #eff6ff; border: 1px solid #bfdbfe; }
+    .box-green { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .box-warn  { background: #fffbeb; border: 1px solid #fde68a; }
+    .box-red   { background: #fff1f2; border: 1px solid #fecdd3; }
+
+    .box-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .box-blue  .box-title { color: #1e40af; }
+    .box-green .box-title { color: #166534; }
+    .box-warn  .box-title { color: #92400e; }
+    .box-red   .box-title { color: #be123c; }
+
+    /* ── Steps ── */
+    .steps { list-style: none; padding: 0; }
+    .steps li {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num {
+      min-width: 32px; height: 32px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-text strong { display: block; margin-bottom: 2px; }
+    .step-text { color: #334155; font-size: 15px; }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, #1a4f8a, #0d2d54);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-icon { font-size: 32px; flex-shrink: 0; }
+    .contact-card h3 { color: #fff; margin: 0 0 6px; }
+    .contact-card p  { color: #93b8d8; margin: 0; }
+    .contact-card a  { color: var(--orange); font-weight: 600; text-decoration: none; }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    th {
+      background: #f1f5f9;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 22px; }
+      .nav a { padding: 14px 16px; font-size: 13px; }
+      main { padding: 32px 16px 60px; }
+      h2 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🔧</div>
+    <span class="logo-name">MiVehículo</span>
+  </div>
+  <h1>Privacidad y Datos</h1>
+  <p>Política de Privacidad · Eliminación de cuenta y datos</p>
+</header>
+
+<nav class="nav">
+  <a href="#" class="active" onclick="showTab('privacidad',this)">📋 Política de Privacidad</a>
+  <a href="#" onclick="showTab('eliminacion',this)">🗑️ Eliminar cuenta</a>
+</nav>
+
+<main>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB 1: POLÍTICA DE PRIVACIDAD              -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="privacidad" class="active">
+
+    <div class="updated">📅 Última actualización: mayo de 2025</div>
+
+    <div class="box box-blue">
+      <div class="box-title">📱 Sobre esta política</div>
+      <p style="margin:0">Esta política describe cómo <strong>MiVehículo</strong>, desarrollada por <strong>Helmantica Software</strong>, recopila, usa y protege la información de sus usuarios. Al usar la app aceptas los términos aquí descritos.</p>
+    </div>
+
+    <h2>1. Datos que recopilamos</h2>
+
+    <h3>Cuando usas la app sin cuenta (modo local)</h3>
+    <p>No recopilamos ningún dato. Toda la información (vehículos, mantenimientos, repostajes) se guarda únicamente en el almacenamiento local de tu dispositivo.</p>
+
+    <h3>Cuando inicias sesión con Google</h3>
+    <table>
+      <thead>
+        <tr><th>Dato</th><th>Origen</th><th>Para qué se usa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dirección de email</td><td>Google Sign-In</td><td>Identificar tu cuenta en la nube</td></tr>
+        <tr><td>Nombre de perfil</td><td>Google Sign-In</td><td>Mostrar tu nombre en la app</td></tr>
+        <tr><td>Datos de vehículos</td><td>Tú los introduces</td><td>Sincronizar entre dispositivos</td></tr>
+        <tr><td>Historial de mantenimientos</td><td>Tú los introduces</td><td>Sincronizar entre dispositivos</td></tr>
+        <tr><td>Historial de repostajes</td><td>Tú los introduces</td><td>Sincronizar entre dispositivos</td></tr>
+        <tr><td>Estado de suscripción</td><td>Google Play / RevenueCat</td><td>Activar funciones Premium</td></tr>
+      </tbody>
+    </table>
+
+    <h2>2. Cómo usamos los datos</h2>
+    <ul>
+      <li>Para proporcionar y mejorar el servicio de MiVehículo</li>
+      <li>Para sincronizar tus datos entre dispositivos (solo si tienes cuenta)</li>
+      <li>Para gestionar tu suscripción Premium, Familia o Empresa</li>
+      <li>Para enviarte notificaciones locales sobre ITV, seguro y mantenimientos</li>
+    </ul>
+
+    <div class="box box-green">
+      <div class="box-title">✅ Lo que NO hacemos</div>
+      <ul style="margin:0">
+        <li>No vendemos tus datos a terceros</li>
+        <li>No compartimos datos con anunciantes</li>
+        <li>No usamos tus datos para publicidad personalizada externa</li>
+        <li>No accedemos a tus datos sin tu autorización</li>
+      </ul>
+    </div>
+
+    <h2>3. Dónde se almacenan los datos</h2>
+    <p>Los datos de usuarios con cuenta se almacenan en <strong>Supabase</strong> (infraestructura de AWS en región europea). Los datos se transmiten siempre cifrados mediante HTTPS/TLS.</p>
+    <p>Los datos locales (sin cuenta) se almacenan exclusivamente en el almacenamiento interno de tu dispositivo Android y nunca salen de él.</p>
+
+    <h2>4. Publicidad</h2>
+    <p>MiVehículo muestra anuncios mediante <strong>Google AdMob</strong> a usuarios del plan gratuito. AdMob puede usar un identificador de publicidad anónimo (GAID) del dispositivo para mostrar anuncios. Puedes limitar esto en los ajustes de tu dispositivo Android en <em>Ajustes → Google → Anuncios</em>.</p>
+    <p>Los usuarios con plan <strong>Premium, Familia o Empresa</strong> no ven publicidad.</p>
+
+    <h2>5. Servicios de terceros</h2>
+    <table>
+      <thead>
+        <tr><th>Servicio</th><th>Función</th><th>Política de privacidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Google Sign-In</td><td>Autenticación</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
+        <tr><td>Supabase</td><td>Base de datos en la nube</td><td><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></td></tr>
+        <tr><td>RevenueCat</td><td>Gestión de suscripciones</td><td><a href="https://www.revenuecat.com/privacy" target="_blank">revenuecat.com/privacy</a></td></tr>
+        <tr><td>Google AdMob</td><td>Publicidad</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com</a></td></tr>
+        <tr><td>Google Gemini AI</td><td>Plan de mantenimiento automático</td><td><a href="https://ai.google.dev/terms" target="_blank">ai.google.dev/terms</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. Permisos de la app</h2>
+    <table>
+      <thead>
+        <tr><th>Permiso</th><th>Para qué se usa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>INTERNET</td><td>Sincronización en la nube, búsqueda de matrículas, plan IA</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Avisos de ITV, seguro y mantenimientos (solo Premium)</td></tr>
+        <tr><td>SCHEDULE_EXACT_ALARM</td><td>Programar notificaciones a la hora exacta</td></tr>
+        <tr><td>RECEIVE_BOOT_COMPLETED</td><td>Reprogramar notificaciones tras reinicio del dispositivo</td></tr>
+      </tbody>
+    </table>
+
+    <h2>7. Menores de edad</h2>
+    <p>MiVehículo no está dirigida a menores de 18 años. No recopilamos intencionadamente datos de menores. Si eres padre/madre y crees que tu hijo ha proporcionado datos, contáctanos para eliminarlos.</p>
+
+    <h2>8. Cambios en esta política</h2>
+    <p>Podemos actualizar esta política ocasionalmente. Te notificaremos dentro de la app si se producen cambios significativos. La fecha de "Última actualización" en la parte superior refleja la versión vigente.</p>
+
+    <h2>9. Contacto</h2>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <h3>¿Tienes preguntas?</h3>
+        <p>Para cualquier consulta sobre privacidad o protección de datos escríbenos a<br>
+        <a href="mailto:rubenlengua2c@gmail.com">rubenlengua2c@gmail.com</a></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB 2: ELIMINACIÓN DE CUENTA               -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="eliminacion">
+
+    <div class="updated">📅 Última actualización: mayo de 2025</div>
+
+    <div class="box box-warn">
+      <div class="box-title">⚠️ Importante antes de continuar</div>
+      <p style="margin:0">La eliminación de tu cuenta es <strong>permanente e irreversible</strong>. Todos tus datos serán borrados de nuestros servidores y no podrán recuperarse.</p>
+    </div>
+
+    <h2>¿Qué datos se eliminan?</h2>
+    <ul>
+      <li>✓ Tu perfil de usuario (email y nombre)</li>
+      <li>✓ Todos los vehículos registrados</li>
+      <li>✓ Todo el historial de mantenimientos</li>
+      <li>✓ Todo el historial de repostajes</li>
+      <li>✓ Datos del seguro de todos los vehículos</li>
+      <li>✓ Estadísticas e informes guardados</li>
+      <li>✓ Configuración y preferencias</li>
+    </ul>
+
+    <div class="box box-blue">
+      <div class="box-title">ℹ️ Nota sobre suscripciones</div>
+      <p style="margin:0">Eliminar tu cuenta <strong>no cancela automáticamente</strong> tu suscripción de Google Play. Para cancelar la suscripción, ve a <strong>Google Play → Suscripciones</strong> y cancélala manualmente antes o después de eliminar tu cuenta.</p>
+    </div>
+
+    <h2>Opción 1 — Desde la app (recomendado)</h2>
+    <p>Es la forma más rápida. La eliminación es inmediata.</p>
+
+    <ol class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Abre MiVehículo en tu dispositivo</strong>
+          Asegúrate de tener conexión a internet.
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Ve a Ajustes</strong>
+          Pulsa el icono ⚙️ en la pantalla principal.
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Inicia sesión con Google (si no lo has hecho)</strong>
+          La eliminación de cuenta en la nube requiere que estés autenticado.
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <strong>Busca la sección "Zona de peligro"</strong>
+          Desplázate hacia abajo hasta encontrarla.
+        </div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-text">
+          <strong>Pulsa "Eliminar cuenta y todos los datos"</strong>
+          Se te pedirá confirmar pulsando el botón una segunda vez.
+        </div>
+      </li>
+      <li>
+        <div class="step-num">6</div>
+        <div class="step-text">
+          <strong>Confirma la eliminación</strong>
+          Tras confirmar, todos tus datos se borran de inmediato de nuestros servidores y del dispositivo.
+        </div>
+      </li>
+    </ol>
+
+    <h2>Opción 2 — Por email</h2>
+    <p>Si no puedes acceder a la app o prefieres hacerlo por email, escríbenos a:</p>
+
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <div>
+        <h3>Solicitud por email</h3>
+        <p>Envía un email a <a href="mailto:rubenlengua2c@gmail.com">rubenlengua2c@gmail.com</a> con el asunto <strong>"Eliminar cuenta MiVehículo"</strong> e indica el email de tu cuenta de Google.<br><br>
+        Procesaremos tu solicitud en un plazo máximo de <strong>30 días</strong>.</p>
+      </div>
+    </div>
+
+    <h2>Plazo de eliminación</h2>
+    <p>Cuando eliminas la cuenta desde la app, los datos se borran <strong>inmediatamente</strong> de nuestros servidores activos. Las copias de seguridad automatizadas se purgan en un plazo máximo de <strong>30 días</strong>.</p>
+
+    <div class="box box-red">
+      <div class="box-title">🔴 Recuerda</div>
+      <ul style="margin:0">
+        <li>Esta acción <strong>no se puede deshacer</strong></li>
+        <li>Si creas una nueva cuenta con el mismo email, empezarás desde cero</li>
+        <li>Cancela tu suscripción en Google Play por separado</li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>MiVehículo</strong> — Desarrollado por Helmantica Software</p>
+  <p style="margin-top:6px">
+    <a href="#" onclick="showTab('privacidad', document.querySelectorAll('.nav a')[0])">Política de Privacidad</a> ·
+    <a href="#" onclick="showTab('eliminacion', document.querySelectorAll('.nav a')[1])">Eliminar cuenta</a> ·
+    <a href="mailto:rubenlengua2c@gmail.com">Contacto</a>
+  </p>
+  <p style="margin-top:8px; color:#94a3b8; font-size:12px">© 2025 Helmantica Software. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  function showTab(id, el) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(el) el.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return false;
+  }
+</script>
+
+</body>
+</html>
